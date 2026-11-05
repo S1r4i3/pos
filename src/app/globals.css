@@ -1,0 +1,65 @@
+@import "tailwindcss";
+@import "@fontsource-variable/inter";
+
+/* ---------------------------------------------------------------
+   Design tokens. Each one becomes a Tailwind class, e.g.
+   --color-primary → bg-primary, text-primary, border-primary
+   --------------------------------------------------------------- */
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+
+  --color-primary: #ea580c;
+  --color-primary-hover: #c2410c;
+  --color-primary-light: #fff7ed;
+
+  --color-sidebar: #1e293b;
+  --color-background: #f8fafc;
+  --color-card: #ffffff;
+  --color-border: #e2e8f0;
+
+  --color-text: #0f172a;
+  --color-muted: #64748b;
+
+  --color-success: #16a34a; /* veg, free table, paid */
+  --color-info: #2563eb; /* occupied table */
+  --color-warning: #f59e0b; /* bill printed, preparing */
+  --color-danger: #dc2626; /* non-veg, cancel, void */
+
+  /* Kitchen Display Screen (dark) */
+  --color-kds-bg: #0f172a;
+  --color-kds-card: #1e293b;
+}
+
+@layer base {
+  *,
+  ::before,
+  ::after {
+    border-color: var(--color-border);
+  }
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  body {
+    background: var(--color-background);
+    color: var(--color-text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Numbers line up in bills and tables */
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Hide number-input spinners (fiddly on touch screens) */
+  input[type="number"]::-webkit-outer-spin-button,
+  input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+}
